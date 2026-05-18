@@ -1,0 +1,176 @@
+:root {
+    --primary-color: #513b56; /* Dark purple/aubergine from mockup */
+    --secondary-color: #ffffff;
+    --accent-color: #28a745; /* Green for success/buttons */
+    --danger-color: #dc3545; /* Red for delete/reject */
+    --bg-light: #f8f9fa;
+    --text-dark: #333;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-light);
+    margin: 0;
+    color: var(--text-dark);
+}
+
+.navbar {
+    background-color: var(--primary-color);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.navbar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.hero {
+    background: linear-gradient(rgba(81, 59, 86, 0.8), rgba(81, 59, 86, 0.8));
+    background-image: url('assets/m.png');
+    background-size: cover;
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.search-bar {
+    max-width: 600px;
+    margin: 2rem auto;
+    background: white;
+    padding: 0.5rem;
+    border-radius: 50px;
+    display: flex;
+}
+
+.search-bar input {
+    border: none;
+    padding: 0.5rem 1.5rem;
+    flex-grow: 1;
+    border-radius: 50px;
+    outline: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.btn {
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.btn-primary { background-color: var(--primary-color); color: white; }
+.btn-outline { border: 1px solid white; color: white; background: transparent; }
+.btn-success { background-color: var(--accent-color); color: white; }
+.btn-danger { background-color: var(--danger-color); color: white; }
+
+/* Sidebar Layout */
+.dashboard-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 2rem 0;
+}
+
+.sidebar-nav a {
+    display: block;
+    padding: 1rem 2rem;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+}
+
+.sidebar-nav a.active {
+    background-color: rgba(255,255,255,0.1);
+    color: white;
+    border-left: 4px solid white;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 2rem;
+    background-color: #fff;
+}
+
+.form-container {
+    max-width: 500px;
+    margin: 2rem auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.status-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+}
+
+.status-pending { background: #eee; }
+.status-rejected { background: var(--danger-color); color: white; }
+
+.skill-tag {
+    background: #eee;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    display: inline-block;
+    margin: 0.2rem;
+}

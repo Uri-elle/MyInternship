@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Modifier Profil Entreprise - MyInternship</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <a href="company-profile.html">Retour au profil</a>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <h2>Mettre à jour les informations de l'entreprise</h2>
+            <div class="form-container" style="margin: 0; max-width: 100%;">
+                <form action="company-profile.html">
+                    <div class="form-group"><label>Nom de l'entreprise</label><input type="text" value="Nom Actuel"></div>
+                    <div class="form-group"><label>Secteur d'activité</label><input type="text" value="Informatique"></div>
+                    <div class="form-group"><label>Description</label><textarea rows="5">Ancienne description...</textarea></div>
+                    <div class="form-group"><label>Logo (URL ou fichier)</label><input type="file"></div>
+                    <button type="submit" class="btn btn-success">Enregistrer les modifications</button>
+                </form>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
