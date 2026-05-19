@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Administration - Connexion</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="display: flex; align-items: center; justify-content: center; height: 100vh; background: #2c3e50;">
+    <div class="form-container" style="width: 100%; max-width: 420px; border-top: 5px solid #e74c3c;">
+        <h2 style="text-align: center; color: #2c3e50; margin-bottom: 0.5rem;">MyInternship Admin</h2>
+        <p style="text-align: center; color: #7f8c8d; font-size: 0.9rem; margin-bottom: 2rem;">Espace d'administration et de modération</p>
+        <form action="admin-dashboard.html">
+            <div class="form-group">
+                <label style="font-weight: bold; color: #34495e;">Identifiant Administrateur</label>
+                <input type="text" placeholder="admin_user" required>
+            </div>
+            <div class="form-group">
+                <label style="font-weight: bold; color: #34495e;">Mot de passe</label>
+                <input type="password" placeholder="••••••••" required>
+            </div>
+            <div class="form-group">
+                <label style="font-weight: bold; color: #34495e;">Clé de sécurité (Token)</label>
+                <input type="password" placeholder="Clé OTP / Double facteur" required>
+            </div>
+            <button type="submit" class="btn" style="width: 100%; background-color: #e74c3c; color: white;">Se connecter à la console</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Console Admin - MyInternship</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .stat-box {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-left: 4px solid #3498db;
+        }
+        .stat-box.danger { border-left-color: #e74c3c; }
+        .stat-box.success { border-left-color: #2ecc71; }
+    </style>
+</head>
+<body>
+    <div class="dashboard-layout">
+        <aside class="sidebar" style="background-color: #2c3e50;">
+            <div style="padding: 0 2rem; margin-bottom: 2rem;"><strong>MyInternship Admin</strong></div>
+            <nav class="sidebar-nav">
+                <a href="#" class="active">Vue d'ensemble</a>
+                <a href="admin-offers.html">Modération des Offres</a>
+                <a href="admin-users.html">Gestion des Utilisateurs</a>
+                <a href="admin-reports.html">Signalements</a>
+                <a href="index.html" style="margin-top: 5rem; color: #e74c3c;">Déconnexion</a>
+            </nav>
+        </aside>
+        <main class="main-content" style="background-color: #f8f9fa;">
+            <h2>Tableau de bord de l'administrateur</h2>
+            <p>Vue d'ensemble et état de la plateforme.</p>
+            
+            <div class="grid" style="margin-bottom: 3rem;">
+                <div class="stat-box">
+                    <h3>148</h3>
+                    <p style="color: #7f8c8d;">Offres en ligne</p>
+                </div>
+                <div class="stat-box success">
+                    <h3>1 240</h3>
+                    <p style="color: #7f8c8d;">Étudiants inscrits</p>
+                </div>
+                <div class="stat-box danger">
+                    <h3>5</h3>
+                    <p style="color: #e74c3c; font-weight: bold;">Signalements actifs</p>
+                </div>
+            </div>
+
+            <h3>Activités récentes</h3>
+            <table>
+                <thead>
+                    <tr><th>Action</th><th>Cible</th><th>Auteur</th><th>Date</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Inscription Entreprise</td><td>Tech Corp</td><td>Système</td><td>Il y a 5 min</td></tr>
+                    <tr><td>Signalement Offre</td><td>Offre #842 - Stage Data</td><td>Étudiant (Anonyme)</td><td>Il y a 23 min</td></tr>
+                    <tr><td>Suppression Offre</td><td>Offre #711 - Spammer</td><td>Admin_01</td><td>Il y a 1h 12m</td></tr>
+                </tbody>
+            </table>
+        </main>
+    </div>
+</body>
+</html>
