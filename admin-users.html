@@ -1,11 +1,12 @@
-
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <title>Gestion des Utilisateurs - Admin</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="dashboard-layout">
         <aside class="sidebar" style="background-color: #2c3e50;">
@@ -13,16 +14,21 @@
                 <a href="admin-dashboard.html">Vue d'ensemble</a>
                 <a href="admin-offers.html">Modération des Offres</a>
                 <a href="#" class="active">Gestion des Utilisateurs</a>
-                <a href="admin-reports.html">Signalements</a>
             </nav>
         </aside>
         <main class="main-content">
             <h2>Gestion des comptes utilisateurs</h2>
             <p>Visualisez, suspendez ou validez les comptes étudiants et recruteurs.</p>
-            
+
             <table>
                 <thead>
-                    <tr><th>Utilisateur</th><th>Type</th><th>Statut</th><th>Date d'inscription</th><th>Action</th></tr>
+                    <tr>
+                        <th>Utilisateur</th>
+                        <th>Type</th>
+                        <th>Statut</th>
+                        <th>Date d'inscription</th>
+                        <th>Action</th>
+                    </tr>
                 </thead>
                 <tbody>
                     <tr>
@@ -30,7 +36,8 @@
                         <td>Étudiant</td>
                         <td><span class="status-badge" style="background: #eafaf1; color: #2ecc71;">Actif</span></td>
                         <td>10/04/2026</td>
-                        <td><button class="btn btn-danger" style="padding: 4px 10px; font-size: 0.8rem;">Bannir</button></td>
+                        <td><button class="btn btn-danger" style="padding: 4px 10px; font-size: 0.8rem;">Bannir</button>
+                        </td>
                     </tr>
                     <tr>
                         <td>CryptoInc (contact@cryptoinc.io)</td>
@@ -38,8 +45,10 @@
                         <td><span class="status-badge" style="background: #fdedec; color: #e74c3c;">Signalé</span></td>
                         <td>14/05/2026</td>
                         <td>
-                            <button class="btn btn-success" style="padding: 4px 10px; font-size: 0.8rem;">Innocenter</button>
-                            <button class="btn btn-danger" style="padding: 4px 10px; font-size: 0.8rem;">Suspendre</button>
+                            <button class="btn btn-success"
+                                style="padding: 4px 10px; font-size: 0.8rem;">Innocenter</button>
+                            <button class="btn btn-danger"
+                                style="padding: 4px 10px; font-size: 0.8rem;">Suspendre</button>
                         </td>
                     </tr>
                 </tbody>
@@ -47,4 +56,5 @@
         </main>
     </div>
 </body>
+
 </html>
