@@ -1,27 +1,59 @@
-
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <title>Connexion - MyInternship</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body style="display: flex; align-items: center; justify-content: center; height: 100vh; background: #f0f2f5;">
     <div class="form-container" style="width: 100%; max-width: 400px;">
         <h2 style="text-align: center;">Connectez-vous</h2>
-        <form>
+        <form id="loginForm">
             <div class="form-group">
                 <label>Email</label>
-                <input type="email" placeholder="votre@email.com">
+                <input type="email" id="email" placeholder="votre@email.com" required>
             </div>
             <div class="form-group">
                 <label>Mot de passe</label>
-                <input type="password">
+                <input type="password" id="mdp" required>
             </div>
             <button type="submit" class="btn btn-primary" style="width: 100%;">Se connecter</button>
-            <p style="text-align: center; margin-top: 1rem;">Ou</p>
-            <a href="user-type.html" class="btn btn-outline" style="width: 100%; color: var(--primary-color); border-color: var(--primary-color); text-align: center;">Créer votre compte</a>
         </form>
+
+        <script>
+            document.getElementById('loginForm').addEventListener('submit', async (e) => {
+                e.preventDefault(); // Empêche le rechargement de la page
+
+                const email = document.getElementById('email').value;
+                const mdp = document.getElementById('mdp').value;
+
+                // Envoi des données au serveur Node.js en JSON
+                const response = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, mdp })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    alert(data.message);
+                    // Redirection dynamique selon le rôle renvoyé par la base de données !
+                    if (data.role === 'Etudiant') {
+                        window.location.href = 'student-profile.html';
+                    } else if (data.role === 'Entreprise') {
+                        window.location.href = 'company-offers.html';
+                    } else if (data.role === 'Admin') {
+                        window.location.href = 'admin-dashboard.html';
+                    }
+                } else {
+                    alert('Erreur : ' + data.error);
+                }
+            });
+        </script>
     </div>
 </body>
+
 </html>
