@@ -76,20 +76,43 @@ app.post("/api/register-student", async (req, res) => {
 app.post("/api/login", (req, res) => {
   const { email, mdp } = req.body;
 
+  console.log("=== TENTATIVE DE CONNEXION ===");
+  console.log(
+    "1. Reçu du formulaire HTML -> Email:",
+    email,
+    " | Mot de passe:",
+    mdp,
+  );
+
   const query = "select * from Utilisateurs where email = ?";
   db.query(query, [email], async (err, results) => {
-    if (err) return res.status(500).json({ error: err.message });
-    if (results.length === 0)
+    if (err) {
+      console.error("Erreur SQL :", err.message);
+      return res.status(500).json({ error: err.message });
+    }
+
+    if (results.length === 0) {
+      console.log(
+        "2. Résultat SQL -> Aucun utilisateur trouvé avec l'email:",
+        email,
+      );
       return res.status(401).json({ error: "Identifiants incorrects." });
+    }
 
     const user = results[0];
+    console.log("2. Résultat SQL -> Utilisateur trouvé !");
+    console.log("   - Rôle en BDD :", user.role);
+    console.log("   - Mot de passe stocké en BDD :", user.mdp);
 
     // Vérification du mot de passe haché
     const match = await bcrypt.compare(mdp, user.mdp);
-    if (!match)
-      return res.status(401).json({ error: "Identifiants incorrects." });
+    console.log("3. Résultat Bcrypt -> Le mot de passe correspond-il ?", match);
 
-    // Renvoie le rôle pour que le Front-end sache vers quel tableau de bord rediriger
+    if (!match) {
+      return res.status(401).json({ error: "Identifiants incorrects." });
+    }
+
+    console.log("-> CONNEXION AUTORISÉE !");
     res.json({
       message: "Connexion réussie !",
       role: user.role,
@@ -97,6 +120,20 @@ app.post("/api/login", (req, res) => {
     });
   });
 });
+
+// Bloc temporaire à supprimer après un seul lancement
+const testHachage = async () => {
+  const hash = await bcrypt.hash("student_hash_123", 10);
+  const query =
+    "update Utilisateurs set mdp = ? where email = 'anamontana@yahoo.fr'";
+  db.query(query, [hash], (err) => {
+    if (err) console.error("Erreur de mise à jour automatique :", err);
+    else
+      console.log("=== RE-HACHAGE RÉUSSI AVEC SUCCÈS POUR ANA MONTANA ! ===");
+  });
+};
+
+//testHachage();
 
 // Démarrage du serveur sur le port 3000
 app.listen(3000, () => {
