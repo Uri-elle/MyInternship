@@ -40,13 +40,17 @@
 
                 if (response.ok) {
                     alert(data.message);
-                    // Redirection dynamique selon le rôle renvoyé par la base de données !
+
+                    // 💾 SAUVEGARDE DES INFOS DANS LE NAVIGATEUR
+                    localStorage.setItem("userRole", data.role);
+                    localStorage.setItem("userId", data.id_U);
+                    localStorage.setItem("specificId", data.id_specific); // Contient l'id_Et ou l'id_E
+
+                    // Redirection dynamique
                     if (data.role === 'Etudiant') {
                         window.location.href = 'student-profile.html';
                     } else if (data.role === 'Entreprise') {
                         window.location.href = 'company-offers.html';
-                    } else if (data.role === 'Admin') {
-                        window.location.href = 'admin-dashboard.html';
                     }
                 } else {
                     alert('Erreur : ' + data.error);
